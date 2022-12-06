@@ -8,6 +8,7 @@ dependencies:
   - streamlit
   - faiss-cpu
   - scipy
+  - sentencepiece
   - pip
   - pip:
     - sentence-transformers==2.2.2
