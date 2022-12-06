@@ -105,7 +105,7 @@ if uploaded_file is not None:
      
     # create sentence embeddings
     sentence_embeddings = model.encode(sentences)
-    sentence_embeddings.shape
+    #sentence_embeddings.shape
     
     #### Vector Dimension
     d = sentence_embeddings.shape[1]
