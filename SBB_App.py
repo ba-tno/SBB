@@ -6,12 +6,12 @@ Created on Tue Dec  6 09:42:03 2022
 """
 
 
-import pandas as pd
-from scipy.spatial.distance import cdist
-import numpy as np
-from sentence_transformers import SentenceTransformer
-import faiss
-import streamlit as st
+#import pandas as pd
+#from scipy.spatial.distance import cdist
+#import numpy as np
+#from sentence_transformers import SentenceTransformer
+#import faiss
+#import streamlit as st
 
 st.title('Occupation Similarity Check')
 
