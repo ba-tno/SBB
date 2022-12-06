@@ -5,7 +5,9 @@ channels:
 dependencies:
   - pandas
   - numpy
-  - sentence-transformers
   - streamlit
   - faiss
   - scipy
+  - pip
+  - pip:
+    - sentence-transformers==2.2.2

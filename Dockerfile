@@ -12,3 +12,5 @@ COPY --chown=$MAMBA_USER:$MAMBA_USER ${PWD} /app/
 WORKDIR /app
 RUN micromamba install -y -n base -f environment.yml && \
     micromamba clean --all --yes
+ENTRYPOINT ["streamlit", "run"]
+CMD ["SBB_App.py", "--server.port=8501", "--server.address=0.0.0.0"]
