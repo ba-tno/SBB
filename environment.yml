@@ -1,0 +1,11 @@
+name: sbb
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pandas
+  - numpy
+  - sentence-transformers
+  - streamlit
+  - faiss
+  - scipy
