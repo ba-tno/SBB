@@ -2,7 +2,7 @@ streamlit
 pandas
 cdist
 numpy
-sentence_transformers
 SentenceTransformer  
 faiss
 scipy.spatial.distance
+sentence_transformers
