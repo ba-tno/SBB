@@ -1,4 +1,8 @@
 streamlit
 pandas
 cdist
-numpy 
+numpy
+sentence_transformers
+SentenceTransformer  
+faiss
+scipy.spatial.distance
