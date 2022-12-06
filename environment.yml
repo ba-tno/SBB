@@ -6,7 +6,7 @@ dependencies:
   - pandas
   - numpy
   - streamlit
-  - faiss
+  - faiss-cpu
   - scipy
   - pip
   - pip:
