@@ -4,14 +4,14 @@ Created on Tue Dec  6 09:42:03 2022
 
 @author: shahmohammadim
 """
-conda install -c conda-forge faiss-cpu
+#conda install -c conda-forge faiss-cpu
 
-#import pandas as pd
+import pandas as pd
 from scipy.spatial.distance import cdist
-#import numpy as np
+import numpy as np
 from sentence_transformers import SentenceTransformer
 import faiss
-#import streamlit as st
+import streamlit as st
 
 st.title('Occupation Similarity Check')
 
