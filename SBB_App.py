@@ -20,7 +20,12 @@ uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
     
 #SBB_Data = pd.read_csv(r'C:/Users/shahmohammadim/OneDrive - TNO/Healthy Living/SBB Similarity/SBB.csv', decimal=",", encoding = "ANSI")
-    SBB_Data = pd.read_csv(uploaded_file,decimal=",", encoding = "ANSI")
+    # Try reading with UTF-8 encoding, fallback on latin_1 (a.k.a ISO-8859-1)
+    try:
+        SBB_Data = pd.read_csv(uploaded_file,decimal=",", encoding = "utf_8")
+    except UnicodeDecodeError as ude:
+        print(ude)
+        SBB_Data = pd.read_csv(uploaded_file,decimal=",", encoding = "latin_1")
     
     SBB_Data.Kwalificatiecode = SBB_Data.Kwalificatiecode.astype(str)
     #SBB_Data.dtypes

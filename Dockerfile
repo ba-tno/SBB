@@ -1,18 +1,20 @@
 FROM mambaorg/micromamba:1-focal
+LABEL authors="Sadegh Shahmohammadi,Bachtijar Ashari"
 LABEL desc="Install conda and pip dependencies for the SBB streamlit app"
-USER root
-# Install build python wheel build dependencies for the case when a package has no wheel
-ARG DEBIAN_FRONTEND=noninteractive
-ENV TZ=Europe/Moscow
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends python3-dev gcc libc-dev g++ pkg-config cmake && \
-    apt-get clean
-USER mambauser
 ARG MAMBA_DOCKERFILE_ACTIVATE=1
-COPY --chown=$MAMBA_USER:$MAMBA_USER ${PWD}/.streamlit /home/mambauser/.streamlit
-COPY --chown=$MAMBA_USER:$MAMBA_USER ${PWD} /app/
 WORKDIR /app
+COPY ${PWD}/environment.yml environment.yml
+# Use multiple threads to speed up environment build
+RUN micromamba config set download_threads 4
+RUN micromamba config set extract_threads 4
 RUN micromamba install -y -n base -f environment.yml && \
     micromamba clean --all --yes
+# Copy the appcode
+COPY ${PWD}/SBB_App.py /app/SBB_App.py
+# Copy the streamlit config
+COPY ${PWD}/.streamlit /home/mambauser/.streamlit
+# Hint that server is on port 80
+EXPOSE 80
+# Include the built in micromamba entrypoint to activate the conda environment
 ENTRYPOINT ["/usr/local/bin/_entrypoint.sh", "streamlit", "run"]
-CMD ["SBB_App.py", "--server.port=8501", "--server.address=0.0.0.0"]
+CMD ["SBB_App.py"]
