@@ -70,11 +70,11 @@ runOnSave = false
 
 # The port where the server will listen for client and browser connections.
 # Default: 8000
-port = 80
+port = 8000
 
 # Enables support for Cross-Origin Request Sharing, for added security.
 # Default: true
-enableCORS = false
+enableCORS = true
 
 
 [browser]
@@ -88,4 +88,4 @@ gatherUsageStats = true
 
 # Port that the browser should use to connect to the server when in liveSave mode.
 # Default: whatever value is set in server.port.
-serverPort = 80
+serverPort = 8000
