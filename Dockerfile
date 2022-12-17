@@ -14,7 +14,7 @@ COPY ${PWD}/SBB_App.py /app/SBB_App.py
 # Copy the streamlit config
 COPY ${PWD}/.streamlit /home/mambauser/.streamlit
 # Hint that server is on port 80
-EXPOSE 80
+EXPOSE 8000
 # Include the built in micromamba entrypoint to activate the conda environment
 ENTRYPOINT ["/usr/local/bin/_entrypoint.sh", "streamlit", "run"]
 CMD ["SBB_App.py"]
